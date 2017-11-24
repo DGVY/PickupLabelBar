@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+class PickupLabelBar;
+class QListWidget;
+class QWidget;
+class QListWidgetItem;
+class QVBoxLayout;
 
 class MainWindow : public QMainWindow
 {
@@ -10,6 +15,16 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+private:
+    QWidget *centerWindow;
+    QVBoxLayout *m_mainLayout;
+    QListWidget *m_listWidget;
+    PickupLabelBar *lab1;
+    PickupLabelBar *lab2;
+    QListWidgetItem     *item1;
+    QListWidgetItem     *item2;
+
 };
 
 #endif // MAINWINDOW_H
