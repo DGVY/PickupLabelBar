@@ -37,3 +37,10 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user*
 
+# VS Floder
+/x64/
+/GeneratedFiles/
+/release/
+/debug/
+/.vs/*
+
