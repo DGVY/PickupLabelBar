@@ -9,7 +9,10 @@
 #include "PickupLabelHeadWidget.h"
 
 PickupLabelBar::PickupLabelBar(QListWidgetItem *item, QString const& LabelName, QWidget *parent)
-    : QWidget(parent)
+    : QWidget(parent),
+    m_PickupCurrent(true),
+    m_ItemHideHigh(35),
+    m_ItemShowHigh(35*4)
 {
     m_Item = item;
     InitWidget(LabelName);
@@ -33,6 +36,11 @@ void PickupLabelBar::InitWidget(QString const& labelName)
 
     // BodyWidget
     m_BodyWidget = new QWidget();
+    m_BodyLayout = new QVBoxLayout(m_BodyWidget);
+    aBtn1 = new QPushButton("abcdefg");
+    aBtn2 = new QPushButton("1234567");
+    m_BodyLayout->addWidget(aBtn1);
+    m_BodyLayout->addWidget(aBtn2);
     
 
     // MainWidget
@@ -40,15 +48,7 @@ void PickupLabelBar::InitWidget(QString const& labelName)
     m_MainLayout->addWidget(m_HeadWidget);
     m_MainLayout->addWidget(m_BodyWidget);
 
-    m_Item->setSizeHint(QSize(250, 100));
-}
-
-void PickupLabelBar::LHeadRelease(void)
-{
-}
-
-void PickupLabelBar::RheadPress(void)
-{
+    m_Item->setSizeHint(QSize(250, m_ItemShowHigh));
 }
 
 /************************************************************************\
@@ -56,27 +56,41 @@ void PickupLabelBar::RheadPress(void)
 \************************************************************************/
 void PickupLabelBar::LHeadPress(void)
 {
-    //// 当前为 "展开"
-    //if (m_PickupCurrent)
-    //{
-    //    setArrowPng(m_PickupRightArrowPath);
-    //    //TODO: 隐藏 BodyWidget
-
-    //    //缩小item宽度
-    //    m_Item->setSizeHint(QSize(250, 35));
-
-    //    m_PickupCurrent = false;
-    //}
-    //// 当前为 "收起"
-    //else
-    //{
-    //    setArrowPng(m_PickupDownArrowPath);
-    //    //TODO: 显示 BodyWidget
-
-    //    //增加item宽度
-    //    m_Item->setSizeHint(QSize(250, 100));
-
-    //    m_PickupCurrent = true;
-    //}
 
 }
+
+void PickupLabelBar::LHeadRelease(void)
+{
+    // 当前为 "展开"
+    if (m_PickupCurrent)
+    {
+        m_HeadWidget->setArrowPng(PickupLabelHeadWidget::mRightArrow);
+        //TODO: 隐藏 BodyWidget
+        //m_BodyWidget->hide();
+        m_MainLayout->removeWidget(m_BodyWidget);
+
+        //缩小item宽度
+        m_Item->setSizeHint(QSize(250, m_ItemHideHigh));
+
+        m_PickupCurrent = false;
+    }
+    // 当前为 "收起"
+    else
+    {
+        m_HeadWidget->setArrowPng(PickupLabelHeadWidget::mDownArrow);
+        //TODO: 显示 BodyWidget
+        //m_BodyWidget->show();
+        m_MainLayout->addWidget(m_BodyWidget);
+
+        //增加item宽度
+        m_Item->setSizeHint(QSize(250, m_ItemShowHigh));
+
+        m_PickupCurrent = true;
+    }
+}
+
+void PickupLabelBar::RheadPress(void)
+{
+    //TODO: 弹出菜单
+}
+

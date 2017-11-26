@@ -28,7 +28,7 @@ private:
     const QString       m_PickupRightArrowPath;
     const QString       m_PickupDownArrowPath;
     // 当前标签页状态(展开:true or 收起:false)，默认展开
-    bool                m_PickupCurrent;
+    bool                *m_PickupCurrent;
     // 标签名
     QLabel              *m_LabelName;
 
@@ -39,6 +39,7 @@ public:
         mDownArrow
     };
     void setArrowPng(enum arrowCurrent a);
+    void setPickupCurrent(bool *pickupCurrent);
 
 private:
     void InitWidget(QString const& labelName);

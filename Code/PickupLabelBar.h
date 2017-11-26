@@ -22,6 +22,13 @@ public:
 private:
     /*---主体布局---*/
     QVBoxLayout         *m_MainLayout;
+    // 当前标签页状态(展开:true or 收起:false)，默认展开
+    bool                m_PickupCurrent;
+    
+    QListWidgetItem     *m_Item;
+    int const           m_ItemShowHigh;
+    int                 m_ItemHideHigh;
+
 
     /*---标签头---*/
     PickupLabelHeadWidget *m_HeadWidget;
@@ -32,10 +39,11 @@ private:
     // 布局
     QVBoxLayout         *m_BodyLayout;
 
-    QListWidgetItem     *m_Item;
 
 
     // 测试用组件
+    QPushButton         *aBtn1;
+    QPushButton         *aBtn2;
 
 private:
     void InitWidget(QString const& labelName);

@@ -11,9 +11,10 @@ PickupLabelHeadWidget::PickupLabelHeadWidget(QString const& labelName, QWidget *
     : QWidget(parent),
     m_PickupRightArrowPath("./Resource/right_arrow.png"),
     m_PickupDownArrowPath("./Resource/down_arrow.png"),
-    m_PickupCurrent(true)
+    m_PickupCurrent(nullptr)
 {
     InitWidget(labelName);
+    setFixedHeight(30);
 }
 
 PickupLabelHeadWidget::~PickupLabelHeadWidget()
@@ -33,6 +34,7 @@ void PickupLabelHeadWidget::InitWidget(QString const & labelName)
     m_LabelName = new QLabel(labelName);
     m_HeadLayout->addWidget(m_PickupArrow);
     m_HeadLayout->addWidget(m_LabelName);
+
 }
 
 /************************************************************************\
@@ -54,6 +56,11 @@ void PickupLabelHeadWidget::setArrowPng(enum arrowCurrent a)
     }
 
     m_PickupArrow->setPixmap(*m_PickupPng);
+}
+
+void PickupLabelHeadWidget::setPickupCurrent(bool *pickupCurrent)
+{
+    m_PickupCurrent = pickupCurrent;
 }
 
 
