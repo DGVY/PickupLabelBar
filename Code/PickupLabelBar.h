@@ -37,7 +37,7 @@ private:
     // 标签体Widget
     QWidget             *m_BodyWidget;
     // 布局
-    QVBoxLayout         *m_BodyLayout;
+    //QVBoxLayout         *m_BodyLayout;
 
 
 

@@ -16,7 +16,6 @@ PickupLabelHeadWidget::PickupLabelHeadWidget(QString const& labelName, bool choo
     m_LablePicPath("./Resource/csharp1.png")
 {
     InitWidget(labelName, chooseLabel);
-    setFixedHeight(35);
 }
 
 PickupLabelHeadWidget::~PickupLabelHeadWidget()
@@ -33,12 +32,13 @@ void PickupLabelHeadWidget::InitWidget(QString const & labelName, bool chooseLab
     m_PickupArrow = new QLabel();
     m_PickupPng = new QPixmap();
     setArrowPng(mDownArrow);
-    m_PickupArrow->resize(m_PickupPng->width(), m_PickupPng->height());
+    m_PickupArrow->setFixedSize(m_PickupPng->width(), m_PickupPng->height());
     m_HeadLayout->addWidget(m_PickupArrow,1);
 
     m_LabelICO = new QLabel();
     m_LabelPic = new QPixmap(m_LablePicPath);
     m_LabelICO->setPixmap(*m_LabelPic);
+    m_LabelICO->setFixedSize(m_LabelPic->width(), m_LabelPic->height());
     m_HeadLayout->addWidget(m_LabelICO, 1);
 
     if (chooseLabel)
@@ -49,8 +49,12 @@ void PickupLabelHeadWidget::InitWidget(QString const & labelName, bool chooseLab
     {
         m_LabelName = new QCheckBox(labelName);
     }
-    m_HeadLayout->addWidget(m_LabelName,4);
+    m_HeadLayout->addWidget(m_LabelName,4, Qt::AlignLeft | Qt::AlignVCenter);
 
+    setFixedHeight(m_LabelPic->height());
+
+    m_HeadLayout->setMargin(0);
+    m_HeadLayout->setSpacing(5);
 }
 
 /************************************************************************\

@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     centerWindow = new QWidget(this);
     m_mainLayout = new QVBoxLayout(centerWindow);
+    this->setCentralWidget(centerWindow);
 
     m_listWidget = new QListWidget();
     item1 = new QListWidgetItem(m_listWidget);
@@ -19,9 +20,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_listWidget->setItemWidget(item1, lab1);
     m_listWidget->setItemWidget(item2, lab2);
+
+    m_listWidget->setSelectionMode(QAbstractItemView::NoSelection);
+
     m_mainLayout->addWidget(m_listWidget);
-    m_listWidget->show();
-    this->setCentralWidget(centerWindow);
+    //m_listWidget->show();
 }
 
 MainWindow::~MainWindow()
