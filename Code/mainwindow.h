@@ -7,6 +7,7 @@ class QListWidget;
 class QWidget;
 class QListWidgetItem;
 class QVBoxLayout;
+class Sidebar;
 
 class MainWindow : public QMainWindow
 {
@@ -25,6 +26,8 @@ private:
     PickupLabelBar *lab2;
     QListWidgetItem     *item1;
     QListWidgetItem     *item2;
+
+    Sidebar *a;
 
 };
 

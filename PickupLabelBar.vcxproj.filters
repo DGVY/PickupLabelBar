@@ -51,6 +51,12 @@
     <CustomBuild Include="Code\Vec3Param.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="Sidebar.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SidebarHead.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Code\main.cpp">
@@ -108,6 +114,24 @@
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="Code\Vec3Param.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Sidebar.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Sidebar.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sidebar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SidebarHead.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SidebarHead.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SidebarHead.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

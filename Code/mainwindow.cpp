@@ -3,6 +3,9 @@
 #include <QtWidgets\QListWidgetItem>
 #include <QtWidgets\QListWidget>
 #include <QtWidgets\QVBoxLayout>
+#include <QSize>
+#include <QColor>
+#include "Sidebar.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent)
     centerWindow = new QWidget(this);
     m_mainLayout = new QVBoxLayout(centerWindow);
     this->setCentralWidget(centerWindow);
+
+    a = new Sidebar();
+    m_mainLayout->addWidget(a);
+
 
     m_listWidget = new QListWidget();
     item1 = new QListWidgetItem(m_listWidget);
@@ -22,9 +29,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_listWidget->setItemWidget(item2, lab2);
 
     m_listWidget->setSelectionMode(QAbstractItemView::NoSelection);
-
     m_mainLayout->addWidget(m_listWidget);
-    //m_listWidget->show();
+
 }
 
 MainWindow::~MainWindow()
