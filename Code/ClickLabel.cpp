@@ -1,4 +1,4 @@
-#include "ClickLabel.h"
+ï»¿#include "ClickLabel.h"
 
 ClickLabel::ClickLabel(QLabel *parent)
     : QLabel(parent)
@@ -9,14 +9,14 @@ ClickLabel::~ClickLabel()
 {
 }
 
-//--Êó±ê°´ÏÂÊÂ¼ş
+//--é¼ æ ‡æŒ‰ä¸‹äº‹ä»¶
 void ClickLabel::mousePressEvent(QMouseEvent *e)
 {
     e = e;
     emit mousePress();
 }
 
-//--Êó±êÊÍ·Å£¨ËÉ¿ª£©ÊÂ¼ş 
+//--é¼ æ ‡é‡Šæ”¾ï¼ˆæ¾å¼€ï¼‰äº‹ä»¶ 
 void ClickLabel::mouseReleaseEvent(QMouseEvent * e)
 {
     e = e;

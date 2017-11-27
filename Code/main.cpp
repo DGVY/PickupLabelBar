@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.setWindowTitle(QWidget::tr("ListWidget²âÊÔ"));
+    w.setWindowTitle(QWidget::tr("ListWidgetæµ‹è¯•"));
     w.resize(300, 300);
     w.show();
 

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <QtWidgets\QWidget>
 class QVBoxLayout;
@@ -20,9 +20,9 @@ public:
     ~PickupLabelBar();
 
 private:
-    /*---Ö÷Ìå²¼¾Ö---*/
+    /*---ä¸»ä½“å¸ƒå±€---*/
     QVBoxLayout         *m_MainLayout;
-    // µ±Ç°±êÇ©Ò³×´Ì¬(Õ¹¿ª:true or ÊÕÆğ:false)£¬Ä¬ÈÏÕ¹¿ª
+    // å½“å‰æ ‡ç­¾é¡µçŠ¶æ€(å±•å¼€:true or æ”¶èµ·:false)ï¼Œé»˜è®¤å±•å¼€
     bool                m_PickupCurrent;
     
     QListWidgetItem     *m_Item;
@@ -30,18 +30,18 @@ private:
     int                 m_ItemHideHigh;
 
 
-    /*---±êÇ©Í·---*/
+    /*---æ ‡ç­¾å¤´---*/
     PickupLabelHeadWidget *m_HeadWidget;
 
-    /*---±êÇ©Ìå---*/
-    // ±êÇ©ÌåWidget
+    /*---æ ‡ç­¾ä½“---*/
+    // æ ‡ç­¾ä½“Widget
     QWidget             *m_BodyWidget;
-    // ²¼¾Ö
+    // å¸ƒå±€
     QVBoxLayout         *m_BodyLayout;
 
 
 
-    // ²âÊÔÓÃ×é¼ş
+    // æµ‹è¯•ç”¨ç»„ä»¶
     QPushButton         *aBtn1;
     QPushButton         *aBtn2;
 

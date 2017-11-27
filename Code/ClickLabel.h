@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <QtWidgets/QLabel>
 
@@ -14,9 +14,9 @@ signals:
     void mousePress();
     void mouseRelease();
 protected:
-    //--Êó±ê°´ÏÂÊÂ¼ş
+    //--é¼ æ ‡æŒ‰ä¸‹äº‹ä»¶
     void mousePressEvent(QMouseEvent *e);
 
-    //--Êó±êÊÍ·Å£¨ËÉ¿ª£©ÊÂ¼ş 
+    //--é¼ æ ‡é‡Šæ”¾ï¼ˆæ¾å¼€ï¼‰äº‹ä»¶ 
     void mouseReleaseEvent(QMouseEvent *e);
 };

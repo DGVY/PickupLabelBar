@@ -1,10 +1,11 @@
-#include "PickupLabelBar.h"
+Ôªø#include "PickupLabelBar.h"
 #include <QtWidgets\QVBoxLayout>
 #include <QtWidgets\QPushButton>
 #include <QtWidgets\QLineEdit>
 #include <QtWidgets\QLabel>
 #include <QtGui\QPixmap>
 #include <QtWidgets\QListWidgetItem>
+//#include <QtWidgets\QCheckBox>
 #include "ClickLabel.h"
 #include "PickupLabelHeadWidget.h"
 
@@ -27,7 +28,7 @@ PickupLabelBar::~PickupLabelBar()
 }
 
 /************************************************************************\
-* ≥ı ºªØ≤ºæ÷
+* ÂàùÂßãÂåñÂ∏ÉÂ±Ä
 \************************************************************************/
 void PickupLabelBar::InitWidget(QString const& labelName)
 {
@@ -41,7 +42,7 @@ void PickupLabelBar::InitWidget(QString const& labelName)
     aBtn2 = new QPushButton("1234567");
     m_BodyLayout->addWidget(aBtn1);
     m_BodyLayout->addWidget(aBtn2);
-    
+
 
     // MainWidget
     m_MainLayout = new QVBoxLayout(this);
@@ -52,37 +53,37 @@ void PickupLabelBar::InitWidget(QString const& labelName)
 }
 
 /************************************************************************\
-* µ„ª˜" ’∆"º˝Õ∑ ¬º˛
+* ÁÇπÂáª"Êî∂Ëµ∑"ÁÆ≠Â§¥‰∫ã‰ª∂
 \************************************************************************/
 void PickupLabelBar::LHeadPress(void)
 {
-
+    //TODO: ÂõæÊ†áÂèòËâ≤
 }
 
 void PickupLabelBar::LHeadRelease(void)
 {
-    // µ±«∞Œ™ "’πø™"
+    // ÂΩìÂâç‰∏∫ "Â±ïÂºÄ"
     if (m_PickupCurrent)
     {
         m_HeadWidget->setArrowPng(PickupLabelHeadWidget::mRightArrow);
-        //TODO: “˛≤ÿ BodyWidget
+        // ÈöêËóè BodyWidget
         //m_BodyWidget->hide();
         m_MainLayout->removeWidget(m_BodyWidget);
 
-        //Àı–°itemøÌ∂»
+        //Áº©Â∞èitemÂÆΩÂ∫¶
         m_Item->setSizeHint(QSize(250, m_ItemHideHigh));
 
         m_PickupCurrent = false;
     }
-    // µ±«∞Œ™ " ’∆"
+    // ÂΩìÂâç‰∏∫ "Êî∂Ëµ∑"
     else
     {
         m_HeadWidget->setArrowPng(PickupLabelHeadWidget::mDownArrow);
-        //TODO: œ‘ æ BodyWidget
+        // ÊòæÁ§∫ BodyWidget
         //m_BodyWidget->show();
         m_MainLayout->addWidget(m_BodyWidget);
 
-        //‘ˆº”itemøÌ∂»
+        //Â¢ûÂä†itemÂÆΩÂ∫¶
         m_Item->setSizeHint(QSize(250, m_ItemShowHigh));
 
         m_PickupCurrent = true;
@@ -91,6 +92,6 @@ void PickupLabelBar::LHeadRelease(void)
 
 void PickupLabelBar::RheadPress(void)
 {
-    //TODO: µØ≥ˆ≤Àµ•
+    //TODO: ÂºπÂá∫ËèúÂçï
 }
 

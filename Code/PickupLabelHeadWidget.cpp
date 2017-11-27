@@ -1,4 +1,4 @@
-#include "PickupLabelHeadWidget.h"
+ï»¿#include "PickupLabelHeadWidget.h"
 #include <QtWidgets\QVBoxLayout>
 #include <QtWidgets\QPushButton>
 #include <QtWidgets\QLineEdit>
@@ -6,15 +6,17 @@
 #include <QtGui\QPixmap>
 #include <QtWidgets\QListWidgetItem>
 #include <QtGui\QMouseEvent>
+#include <QtWidgets\QCheckBox>
 
-PickupLabelHeadWidget::PickupLabelHeadWidget(QString const& labelName, QWidget *parent)
+PickupLabelHeadWidget::PickupLabelHeadWidget(QString const& labelName, bool chooseLabel, QWidget *parent)
     : QWidget(parent),
     m_PickupRightArrowPath("./Resource/right_arrow.png"),
     m_PickupDownArrowPath("./Resource/down_arrow.png"),
-    m_PickupCurrent(nullptr)
+    m_PickupCurrent(nullptr),
+    m_LablePicPath("./Resource/csharp1.png")
 {
-    InitWidget(labelName);
-    setFixedHeight(30);
+    InitWidget(labelName, chooseLabel);
+    setFixedHeight(35);
 }
 
 PickupLabelHeadWidget::~PickupLabelHeadWidget()
@@ -22,23 +24,37 @@ PickupLabelHeadWidget::~PickupLabelHeadWidget()
 }
 
 /************************************************************************\
-* ³õÊ¼»¯²¼¾Ö
+* åˆå§‹åŒ–å¸ƒå±€
 \************************************************************************/
-void PickupLabelHeadWidget::InitWidget(QString const & labelName)
+void PickupLabelHeadWidget::InitWidget(QString const & labelName, bool chooseLabel)
 {
     m_HeadLayout = new QHBoxLayout(this);
+
     m_PickupArrow = new QLabel();
     m_PickupPng = new QPixmap();
     setArrowPng(mDownArrow);
     m_PickupArrow->resize(m_PickupPng->width(), m_PickupPng->height());
-    m_LabelName = new QLabel(labelName);
-    m_HeadLayout->addWidget(m_PickupArrow);
-    m_HeadLayout->addWidget(m_LabelName);
+    m_HeadLayout->addWidget(m_PickupArrow,1);
+
+    m_LabelICO = new QLabel();
+    m_LabelPic = new QPixmap(m_LablePicPath);
+    m_LabelICO->setPixmap(*m_LabelPic);
+    m_HeadLayout->addWidget(m_LabelICO, 1);
+
+    if (chooseLabel)
+    {
+        m_LabelName = new QLabel(labelName);
+    }
+    else
+    {
+        m_LabelName = new QCheckBox(labelName);
+    }
+    m_HeadLayout->addWidget(m_LabelName,4);
 
 }
 
 /************************************************************************\
-* ÉèÖÃ¼ýÍ·Í¼Æ¬
+* è®¾ç½®ç®­å¤´å›¾ç‰‡
 \************************************************************************/
 void PickupLabelHeadWidget::setArrowPng(enum arrowCurrent a)
 {
@@ -58,10 +74,10 @@ void PickupLabelHeadWidget::setArrowPng(enum arrowCurrent a)
     m_PickupArrow->setPixmap(*m_PickupPng);
 }
 
-void PickupLabelHeadWidget::setPickupCurrent(bool *pickupCurrent)
-{
-    m_PickupCurrent = pickupCurrent;
-}
+//void PickupLabelHeadWidget::setPickupCurrent(bool *pickupCurrent)
+//{
+//    m_PickupCurrent = pickupCurrent;
+//}
 
 
 void PickupLabelHeadWidget::mousePressEvent(QMouseEvent * e)

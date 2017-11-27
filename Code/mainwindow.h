@@ -19,6 +19,7 @@ public:
 private:
     QWidget *centerWindow;
     QVBoxLayout *m_mainLayout;
+    QVBoxLayout *m_itemLayout;
     QListWidget *m_listWidget;
     PickupLabelBar *lab1;
     PickupLabelBar *lab2;

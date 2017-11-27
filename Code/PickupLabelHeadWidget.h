@@ -8,6 +8,7 @@ class QLineEdit;
 class QLabel;
 class ClickLabel;
 class QPixmap;
+class QCheckBox;
 
 class PickupLabelHeadWidget : public QWidget
 {
@@ -16,12 +17,14 @@ class PickupLabelHeadWidget : public QWidget
 public:
     PickupLabelHeadWidget(
         QString const& labelName = "NewLabel", 
+        bool chooseLabel = false,
         QWidget *parent = nullptr);
     ~PickupLabelHeadWidget();
 
 private:
     // 布局
     QHBoxLayout         *m_HeadLayout;
+
     // "收起" 箭头
     QLabel              *m_PickupArrow;
     QPixmap             *m_PickupPng;
@@ -29,8 +32,14 @@ private:
     const QString       m_PickupDownArrowPath;
     // 当前标签页状态(展开:true or 收起:false)，默认展开
     bool                *m_PickupCurrent;
+
+    // 标签图标
+    QLabel              *m_LabelICO;
+    QPixmap             *m_LabelPic;
+    const QString       m_LablePicPath;
+
     // 标签名
-    QLabel              *m_LabelName;
+    QWidget             *m_LabelName;
 
 public:
     enum arrowCurrent
@@ -39,10 +48,10 @@ public:
         mDownArrow
     };
     void setArrowPng(enum arrowCurrent a);
-    void setPickupCurrent(bool *pickupCurrent);
+    //void setPickupCurrent(bool *pickupCurrent);
 
 private:
-    void InitWidget(QString const& labelName);
+    void InitWidget(QString const& labelName, bool chooseLabel);
 
 signals:
     void myLMousePress(void);
